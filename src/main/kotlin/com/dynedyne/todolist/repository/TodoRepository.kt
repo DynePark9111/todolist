@@ -2,4 +2,4 @@ package com.dynedyne.todolist.repository
 
 import org.springframework.data.repository.CrudRepository
 
-interface TodoRepository:CrudRepository<Todo, Long>
+interface TodoRepository : CrudRepository<Todo, Long>

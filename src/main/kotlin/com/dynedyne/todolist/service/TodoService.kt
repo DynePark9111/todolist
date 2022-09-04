@@ -9,13 +9,21 @@ import org.springframework.stereotype.Service
 class TodoService(private val todoRepository: TodoRepository) {
     fun getTodos() = todoRepository.findAll()
 
-    fun insertTodo(todoName: String):Todo = todoRepository.save(Todo(todoName = todoName))
+    fun insertTodo(content: String): Todo = todoRepository.save(Todo(content = content))
 
-    fun updatedTodo(todoId: Long):Todo {
+    fun completeTodo(todoId: Long): Todo {
         val todo = todoRepository.findByIdOrNull(todoId) ?: throw Exception()
         todo.completed = !todo.completed
         return todoRepository.save(todo)
     }
+
+    fun importantTodo(todoId: Long): Todo {
+        val todo = todoRepository.findByIdOrNull(todoId) ?: throw Exception()
+        todo.important = !todo.important
+        return todoRepository.save(todo)
+    }
+
+
 
     fun deleteTodo(todoId: Long) = todoRepository.deleteById(todoId)
 }

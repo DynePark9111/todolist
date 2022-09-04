@@ -1,3 +1,3 @@
 package com.dynedyne.todolist.controller
 
-data class TodoRequest(val todoName: String)
+data class TodoRequest(val content: String)

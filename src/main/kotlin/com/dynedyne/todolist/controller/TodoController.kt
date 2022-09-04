@@ -17,13 +17,14 @@ class TodoController(private val todoService: TodoService) {
     fun getTodos() = todoService.getTodos()
 
     @PostMapping
-    fun insertTodo(@RequestBody todoRequest: TodoRequest) = todoService.insertTodo(todoRequest.todoName)
+    fun insertTodo(@RequestBody todoRequest: TodoRequest) = todoService.insertTodo(todoRequest.content)
 
-    @PutMapping(path=["/{todoId}"])
-    fun updateTodo(@PathVariable(value = "todoId") todoId: Long) = todoService.updatedTodo(todoId)
+    @PutMapping(path = ["/complete/{todoId}"])
+    fun completeTodo(@PathVariable(value = "todoId") todoId: Long) = todoService.completeTodo(todoId)
 
-    @DeleteMapping(path=["/{todoId}"])
+    @PutMapping(path = ["/important/{todoId}"])
+    fun importantTodo(@PathVariable(value = "todoId") todoId: Long) = todoService.importantTodo(todoId)
+
+    @DeleteMapping(path = ["/{todoId}"])
     fun deleteTodo(@PathVariable(value = "todoId") todoId: Long) = todoService.deleteTodo(todoId)
-
-
 }
