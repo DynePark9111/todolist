@@ -26,7 +26,7 @@ docker run -p 3306:3306 --name todolist -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DAT
 
 ### BE
 
-1.
+1. Java version 11.0.16
 
 ## API
 
